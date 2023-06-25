@@ -5,14 +5,14 @@ pipeline {
       parallel {
         stage(machine_2) {
           //agent {lable 'machine_2'}
-          agent machine_2
+          agent {machine_2}
           steps {
             sh 'echo build on machine_2'
           }
         }
         stage('machine_3'){
           //agent {lable 'machine_3'}
-          agent machine_3
+          agent {machine_3}
           steps {
             sh 'echo build on machine_3'
           }
@@ -22,13 +22,13 @@ pipeline {
     stage('run') {
       parallel {
         stage('machine_2') {
-          agent machine_2
+          agent {machine_2}
           steps {
             sh 'echo "run on machine_2" '
           }
         }
         stage('machine_3') {
-          agent machine_3
+          agent {machine_3}
           steps {
             sh 'echo "run on machine_3"'
           }
